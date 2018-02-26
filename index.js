@@ -1,5 +1,4 @@
-var express = require('express'),
-	app     = express();
+const app = require('./src/server/server.js');
 
 app.listen(3000, (err) => {
 	if(err) {
@@ -7,4 +6,4 @@ app.listen(3000, (err) => {
 	}
 
 	console.log('server started...');
-})
+});
