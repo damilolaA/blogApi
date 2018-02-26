@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+	  config   = require('../../../../config/config.js'),
+	  { databaseUrl } = config;
 
 let	postsSchema;
 
-mongoose.connect('mongodb://mongo/blog');
+mongoose.connect(databaseUrl);
 
 postsSchema = new mongoose.Schema({
 	title: {type: String, required: true},

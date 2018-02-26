@@ -16,6 +16,4 @@ const envconfig = require('./' + config.env);
 
 const data = _.merge(config, envconfig);
 
-console.log(data);
-
 module.exports = data;
