@@ -1,0 +1,23 @@
+{
+	"extends": [
+		"airbnb-base"
+	],
+
+	"env": {
+		"node": true
+	},
+
+	"rules": {
+		"one-var": ["error", "always"],
+		"import/no-unresolved": [
+	      2, 
+	      { "caseSensitive": false }
+	    ],
+	    "no-underscore-dangle": "off",
+	    "consistent-return": ["off", { "treatUndefinedAsUnspecified": false }],
+	    "array-callback-return": "off",
+	    "arrow-parens": ["error", "as-needed"],
+	    "prefer-const": "off"
+	}
+
+}

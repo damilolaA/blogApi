@@ -12,7 +12,7 @@ exports.interceptPostId = (req, res, next, id) => {
 };
 
 exports.addPost = (req, res, next) => {
-  let post = req.body,
+  const post = req.body,
     newPost = new PostsModel(post);
 
   newPost.save((err, data) => {
@@ -43,7 +43,7 @@ exports.getPostById = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-  let postId = req.post._id;
+  const postId = req.post._id;
 
   PostsModel.remove({ _id: postId }, err => {
     if (err) {
@@ -55,7 +55,7 @@ exports.deletePost = (req, res, next) => {
 };
 
 exports.updatePost = (req, res, next) => {
-  let postId = req.post._id,
+  const postId = req.post._id,
     newPost = req.body;
 
   PostsModel.update({ _id: postId }, newPost, { new: true }, err => {
