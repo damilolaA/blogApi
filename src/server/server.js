@@ -1,12 +1,12 @@
 const express = require('express'),
-	  app     = express(),
-	  bps	  = require('body-parser'),
-	  morgan  = require('morgan'),
-	  cors	  = require('cors'),
-	  api     = require('../api/api.js');
+  app = express(),
+  bps = require('body-parser'),
+  morgan = require('morgan'),
+  cors = require('cors'),
+  api = require('../api/api.js');
 
 app.use(bps.json());
-app.use(bps.urlencoded({extended: false}));
+app.use(bps.urlencoded({ extended: false }));
 
 app.use(morgan('dev'));
 
