@@ -1,0 +1,1 @@
+An Express api that provides endpoints for a blog application
