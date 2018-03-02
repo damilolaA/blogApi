@@ -25,14 +25,26 @@ exports.addPost = (req, res, next) => {
 };
 
 exports.getPosts = (req, res, next) => {
-  PostsModel.find((err, data) => {
+  PostsModel.find((err, info) => {
     if (err) {
       return next(new Error('could not fetch posts'));
     }
 
-    
+    let updatedData = [];
 
-    res.status(200).json(data);
+    info.forEach(post => {
+      let data = post,
+        { date } = data,
+        newDate = new Date(date),
+        formattedDate = newDate.toDateString();
+
+      data = data.toJSON();
+      data.newDate = formattedDate;
+
+      updatedData.push(data);
+    });
+
+    res.status(200).json(updatedData);
   });
 };
 
