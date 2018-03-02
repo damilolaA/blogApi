@@ -30,6 +30,8 @@ exports.getPosts = (req, res, next) => {
       return next(new Error('could not fetch posts'));
     }
 
+    
+
     res.status(200).json(data);
   });
 };
@@ -39,7 +41,15 @@ exports.getPostById = (req, res, next) => {
     return next(new Error('could not get post by id'));
   }
 
-  res.status(200).json(req.post);
+  let data = req.post,
+    { date } = data,
+    newDate = new Date(date),
+    formattedDate = newDate.toDateString();
+
+  data = data.toJSON();
+  data.newDate = formattedDate;
+
+  res.status(200).json(data);
 };
 
 exports.deletePost = (req, res, next) => {
